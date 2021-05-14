@@ -1,0 +1,17 @@
+<html>
+<body>
+<h1>Random Hit Locations</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>Hits {{ form.hit_count(size=2) }}</p>
+    <p>{{ form.submit() }}</p>
+    {% if hit_locations is defined and hit_locations %}
+    <ul>
+        {% for hit_location in hit_locations %}
+        <li>{{ hit_location }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
+</body>
+</html>
