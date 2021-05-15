@@ -3,12 +3,15 @@
 <h1>Random Hit Locations</h1>
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
+    <p>Damage {{ form.damage_dice_count(size=3) }} d {{ form.damage_bonus(size=3) }}</p>
     <p>Hits {{ form.hit_count(size=2) }}</p>
     <p>{{ form.submit() }}</p>
-    {% if hit_locations is defined and hit_locations %}
-    <ul>
-        {% for hit_location in hit_locations %}
-        <li>{{ hit_location }}</li>
+    {% if hit_results is defined and hit_results %}
+    <ul style="list-style-type:none;">
+        {% for hit_result in hit_results %}
+        <li>
+            <pre>{{ '{:20}'.format(hit_result.location) }}{{ '{:>5}'.format(hit_result.damage) }}</pre>
+        </li>
         {% endfor %}
     </ul>
     {% endif %}

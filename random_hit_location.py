@@ -37,5 +37,5 @@ HIT_LOCATION_WEIGHTS = [
 ]
 
 
-def provide_random_hit_locations(sample_size):
-    return random.choices(HIT_LOCATIONS, weights=HIT_LOCATION_WEIGHTS, k=sample_size)
+def provide_random_hit_locations(sample_size, rand: random):
+    return rand.choices(HIT_LOCATIONS, weights=HIT_LOCATION_WEIGHTS, k=sample_size)
